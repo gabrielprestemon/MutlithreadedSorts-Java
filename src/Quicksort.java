@@ -1,9 +1,16 @@
+// Class: Quicksort
+// Author: Gabriel Prestemon
+// Purpose: sort an array of integers using a quicksort algorithm
+//   the class can sort an array using an unthreaded quicksort using a static call
+//   or the class can sort an array using a multithreaded quicksort by creating an instance of the class
 
 public class Quicksort {
 	// array to be sorted
 	private int[] a;
 	// get the sorted array
 	public int[] getArray(){return a;}
+
+	public Quicksort(){}
 	
 	// constructor will automatically run the multithreaded quicksort on the array
 	public Quicksort(int[] arr){
@@ -12,6 +19,14 @@ public class Quicksort {
 		QsortThread q = new QsortThread(0, a.length - 1);
 	}
 		
+	// non-static method will run a multithreaded quicksort and return the array
+	public int[] threadedSort(int[] arr){
+		a = arr;
+		// start the recursive sort
+		QsortThread q = new QsortThread(0, a.length - 1);
+		return a;
+	}
+	
 	
 	// quicksort thread class
 	private class QsortThread extends Thread{
@@ -65,9 +80,8 @@ public class Quicksort {
 	// STATIC UNTHREADED QUICKSORT
 	
 	// static method sort will run a standard, unthreaded quicksort on the input
-	public static int[] sort(int[] arr){
+	public static void sort(int[] arr){
 		qsort(arr, 0, arr.length - 1);
-		return arr;
 	}
 	
 	// the recursive method which will be called in static method sort

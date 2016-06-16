@@ -26,9 +26,9 @@ public class Test {
 		Test.fillWithRandomInt(arr, range);
 		
 		// sort the array using the standard unthreaded quicksort
-		System.out.println("Sorting with quicksort (standard).");
-		arr = Quicksort.sort(arr);
-		
+		System.out.println("Sorting with quicksort (Unthreaded).");
+		Quicksort.sort(arr);
+
 		// print whether or not the array is sorted
 		if(Test.isOrdered(arr)){
 			System.out.println("Sort successful.");
@@ -44,6 +44,21 @@ public class Test {
 		System.out.println("Sorting with quicksort (Multithreaded).");
 		Quicksort q = new Quicksort(arr);
 		arr = q.getArray();
+		
+		// print whether or not the array is sorted
+		if(Test.isOrdered(arr)){
+			System.out.println("Sort successful.");
+		}
+		else{
+			System.out.println("Sort unsuccessful.");
+		}
+		
+		// fill the array with random numbers
+		Test.fillWithRandomInt(arr, range);
+		
+		// sort the array using the standard multithreaded quicksort
+		System.out.println("Sorting with mergesort (Unthreaded).");
+		Mergesort.sort(arr);
 		
 		// print whether or not the array is sorted
 		if(Test.isOrdered(arr)){
