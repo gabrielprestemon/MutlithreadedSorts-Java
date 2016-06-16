@@ -25,7 +25,7 @@ public class Test {
 		// fill the array with random numbers
 		Test.fillWithRandomInt(arr, range);
 		
-		// sort the array using the standard single-threaded quicksort
+		// sort the array using the standard unthreaded quicksort
 		System.out.println("Sorting with quicksort (standard).");
 		arr = Quicksort.sort(arr);
 		
@@ -36,5 +36,22 @@ public class Test {
 		else{
 			System.out.println("Sort unsuccessful.");
 		}
+		
+		// fill the array with random numbers
+		Test.fillWithRandomInt(arr, range);
+		
+		// sort the array using the standard multithreaded quicksort
+		System.out.println("Sorting with quicksort (Multithreaded).");
+		Quicksort q = new Quicksort(arr);
+		arr = q.getArray();
+		
+		// print whether or not the array is sorted
+		if(Test.isOrdered(arr)){
+			System.out.println("Sort successful.");
+		}
+		else{
+			System.out.println("Sort unsuccessful.");
+		}
+
 	}
 }
